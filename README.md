@@ -14,7 +14,7 @@
 ---
 
 > [!NOTE]
-> **Klasik EEM Eğitimi Arayanlar İçin:** Eğer geleneksel Elektrik-Elektronik teorisi (Op-Amp tasarımları, Transistör analizleri, Vize/Final notluk çalışma materyalleri) arıyorsanız buradan çıkabilirsiniz. Klasik mühendislik temelleri için diğer depom olan **[EEE-Encyclopedia](https://github.com/arch-yunus/EEE-Encyclopedia)** sayfasına gidebilirsiniz. Burası (Post-AI), makinenin yapamadığı sınırları zorlayan *Otonom Donanım* ve *Meta-Mühendislik* kuluçkasıdır.
+> **Önkoşul & Klasik EEM Temelleri:** Bu depo, genel Elektrik-Elektronik Mühendisliğinin ileri seviye endüstriyel Ar-Ge uygulamalarını (Post-AI) hedefler. Ancak otonom mimarileri ve C++ donanım mantığını kavrayabilmek için **geleneksel alan teorisinin (Devre analizi, Op-Amp tasarımları, Güç Elektroniği) çelik gibi sağlam olması hayati derecede önemlidir.** Bu temeli dünya standartlarında atmak ve klasik vizeleri/finalleri ezip geçmek için diğer master arşivimiz olan devasa **[EEE-Encyclopedia](https://github.com/arch-yunus/EEE-Encyclopedia)** deposunu ilk olarak hatmetmeniz şiddetle tavsiye edilir. Temeli sağlam olanlar için burası; makinenin sınırlarını zorlayan *Otonom Donanım* ve *Meta-Mühendislik* laboratuvarıdır.
 
 ---
 
