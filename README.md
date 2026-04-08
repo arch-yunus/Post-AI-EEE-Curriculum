@@ -15,13 +15,16 @@
 
 ## 🏴‍☠️ Manifesto: Neden Yeni Bir Müfredat?
 
-> *"Yapay zeka (LLM'ler, Copilot'lar) saniyeler içinde binlerce satır kod yazabildiği, standart kontrol kodlarını sentezleyebildiği bir çağda, geleneksel mühendislik eğitimi varoluşsal bir krize girmiştir."*
+> *"Yapay zeka artık salt bir 'kod yazıcısı' olmakla kalmıyor. Devre teorisini saniyeler içinde denklemleştiren, diferansiyel denklemleri modelleyen, otonom PCB yönlendirmeleri tasarlayan ajanların çağındayız. Eğer bir Elektronik Mühendisi 'hesap makinesi' olmanın güvencesine sığınıyorsa, o güvence en fazla birkaç ay daha sürecektir."*
 
-Artık asıl mühendislik dar boğazı ekrandaki salt yazılım değil; **fiziksel sistem entegrasyonu, enerji yönetimi, sensör-mekanik uyumu ve donanım limitleridir.** 
+### Klasik Mühendisliğin Varoluşsal Krizi
+Öğrenciler üniversitelerde 4 yıl boyunca tahta üzerinde integral çözüp laboratuvarda düğüm (Nodal) hesaplamaları yaparken, bu teorik "sayısal hamallığın" endüstrideki karşılığı artık tek bir doğru yapay zeka promptuna denk düşüyor. Yapay zekanın tüm hesaplamaları, algoritmaları ve tasarımları tek başına yapmasının "zaman meselesi" bile olmadığı, an meselesi olduğu bir dönemdeyiz.
 
-Öğrenciler 4 yıl boyunca tahta üzerinde integral çözüp laboratuvarda direnç okurken, dışarıdaki endüstri ROS2 C++ düğümleri ile Lidar sensörlerini otonom sistemlere bağlıyor, NVIDIA Jetson üzerinde TensorRT ile ağır AI modellerini uç cihazlara sığdırıyor.
+### Meta-Mühendislik: Makinenin Çaresiz Kaldığı Sınır
+Yapay zekanın kodu ve matematiği ne kadar kusursuz olursa olsun aşamadığı tek bir sınır var: **Gerçek dünyanın fiziksel entropisi.**
+Artık değer yaratılan asıl alan ekrandaki salt teorik hesabı yapmak değil; **fiziksel sistem entegrasyonu, termal dar boğazları (overheating) aşmak, sensörlerin doğadaki fiziksel gürültüsüyle (noise) başa çıkmak, batarya (BMS) güç yönetimi ve siber-fiziksel donanım güvenliğidir.**
 
-Bu müfredat; dışarıdan bağımsız şekilde uçtan uca fiziksel ve zeki ürünler geliştirebilen, otonom sistemleri kavrayan ve siber-fiziksel güvenliği anlayan yeni nesil **"Meta-Mühendisler"** için bir inşa kuluçkasıdır.
+Bu müfredat, makineyle hesap yapma yarışına giren değil; dışarıdan bağımsız şekilde uçtan uca otonom ürünler geliştiren, zekayı metalin kalbine gömen ve donanımla yazılımın kusursuz köprüsünü kuran yepyeni bir tür, **"Meta-Mühendis (Sistem Mimarı)"** yetiştirmek için inşâ edilmiştir.
 
 <br>
 
