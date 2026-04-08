@@ -13,8 +13,8 @@
 
 ---
 
-> [!NOTE]
-> **Önkoşul & Klasik EEM Temelleri:** Bu depo, genel Elektrik-Elektronik Mühendisliğinin ileri seviye endüstriyel Ar-Ge uygulamalarını (Post-AI) hedefler. Ancak otonom mimarileri ve C++ donanım mantığını kavrayabilmek için **geleneksel alan teorisinin (Devre analizi, Op-Amp tasarımları, Güç Elektroniği) çelik gibi sağlam olması hayati derecede önemlidir.** Bu temeli dünya standartlarında atmak ve klasik vizeleri/finalleri ezip geçmek için diğer master arşivimiz olan devasa **[EEE-Encyclopedia](https://github.com/arch-yunus/EEE-Encyclopedia)** deposunu ilk olarak hatmetmeniz şiddetle tavsiye edilir. Temeli sağlam olanlar için burası; makinenin sınırlarını zorlayan *Otonom Donanım* ve *Meta-Mühendislik* laboratuvarıdır.
+> [!IMPORTANT]
+> **Mimari Ekosistem ve Temeller:** Bu depo, **[EEE-Encyclopedia](https://github.com/arch-yunus/EEE-Encyclopedia)** ile bir bütündür. Eğer temel devre teorisi, komponent analizi ve akademik EEM temellerinizde eksiklik varsa, önce o ansiklopediyi hazmetmeniz önerilir. Bu depo (Post-AI), o devasa temelin üzerine inşa edilen, makinenin çaresiz kaldığı sınırları zorlayan *Otonom Donanım* ve *Meta-Mühendislik* kuluçkasıdır.
 
 ---
 
