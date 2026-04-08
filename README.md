@@ -13,6 +13,11 @@
 
 ---
 
+> [!NOTE]
+> **Klasik EEM Eğitimi Arayanlar İçin:** Eğer geleneksel Elektrik-Elektronik teorisi (Op-Amp tasarımları, Transistör analizleri, Vize/Final notluk çalışma materyalleri) arıyorsanız buradan çıkabilirsiniz. Klasik mühendislik temelleri için diğer depom olan **[EEE-Encyclopedia](https://github.com/arch-yunus/EEE-Encyclopedia)** sayfasına gidebilirsiniz. Burası (Post-AI), makinenin yapamadığı sınırları zorlayan *Otonom Donanım* ve *Meta-Mühendislik* kuluçkasıdır.
+
+---
+
 ## 🏴‍☠️ Manifesto: Neden Yeni Bir Müfredat?
 
 > *"Yapay zeka artık salt bir 'kod yazıcısı' olmakla kalmıyor. Devre teorisini saniyeler içinde denklemleştiren, diferansiyel denklemleri modelleyen, otonom PCB yönlendirmeleri tasarlayan ajanların çağındayız. Eğer bir Elektronik Mühendisi 'hesap makinesi' olmanın güvencesine sığınıyorsa, o güvence en fazla birkaç ay daha sürecektir."*
