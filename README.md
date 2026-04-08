@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=1e1e1e&height=250&section=header&text=Post-AI%20EEE%20Curriculum&fontSize=50&fontColor=ffffff&animation=fadeIn&desc=The%20Meta-Engineering%20Blueprint%20for%20the%20Autonomous%20Era&descAlignY=70&descAlign=62" width="100%" />
+<img src="assets/banner.png" alt="Meta-Engineering Curriculum Banner" width="100%" />
 
   <br>
   
