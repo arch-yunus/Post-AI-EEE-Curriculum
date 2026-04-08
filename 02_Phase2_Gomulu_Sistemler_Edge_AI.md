@@ -1,42 +1,67 @@
-# Phase 2: Gömülü Sistemler ve Uç Yapay Zeka (Embedded & Edge-AI)
+# Phase 2: Gömülü Sistemler ve Uç Yapay Zeka (Embedded & Edge-AI) - High Density
 
-Zekayı buluttan (cloud) fiziksel dünyaya, doğrudan metalin içine (bare-metal) indireceğimiz aşamadır. Buradaki amaç sadece LED yakıp söndürmek veya hazır kütüphaneler kullanmak değil; işlemci zamanını, güç tüketimini ve gecikmeyi (latency) mikrosaniye düzeyinde yönetecek sistemleri inşa etmektir. 
-
-Otonom bir aracın yapay zeka beynini (Jetson) ve kaslarını yönetecek sinir sistemini (RTOS ve MCU) kuruyoruz. Donanım affetmez. 
+Zekayı buluttan fiziksel dünyaya, doğrudan metalin içine (Bare-Metal) indirgeme aşamasıdır. Bu fazda mühendislik, mikrosaniye düzeyindeki gecikmelerin (latency) ve donanım kısıtlarının mükemmel bir orkestrasyonudur. Otonom bir aracın yapay zeka beynini (Jetson/Xavier) ve kaslarını yönetecek sinir sistemini (RTOS ve MCU) inşa ediyoruz.
 
 ---
 
-## 📚 1. Yüksek Yoğunluklu Kaynaklar
+## 📚 1. Yüksek Yoğunluklu Kaynaklar (Industrial Standard Reference)
 
-* **Kitap:** *Making Embedded Systems* – Elecia White. (Gömülü yazılım tasarım kalıpları, donanımla konuşan mimariler kurmak için endüstri standardı).
-* **Kitap:** *Real-Time Systems and Software* – (Gerçek zamanlı kısıtlamalar, timer'lar ve donanım kesintileri - interrupt detayları).
-* **Kitap & Dokümantasyon:** *NVIDIA TensorRT Documentation & CUDA C++ Programming Guide*. (Uç cihazlarda yapay zeka modelini en yüksek performansta (FPS) çalıştırmanın tek yolu modeli donanım mimarisine göre optimize etmektir).
-* **Pratik Doküman:** *FreeRTOS Reference Manual*. (Birden çok görevin (task) işlemci üzerinde eşzamanlı olarak nasıl güvenli yönetileceğini anlamak için).
+### A. Real-Time Architectures
+*   **Jane Liu - Real-Time Systems:** RTOS dünyasındaki Scheduling (RMS, EDF) teorilerinin en derin akademik kaynağı.
+*   **FreeRTOS Master Class:** Çok izlekli (multi-threaded) donanım yönetimi için temel referans.
 
----
+### B. High-Performance Edge-AI
+*   **NVIDIA CUDA Programming Guide:** GPU hattını doğrudan C++ ile sömürmek için.
+*   **TensorRT Developer Guide:** Model çıkarım (inference) hızlandırmasında "Quantization" ve "Layer Fusion" teknikleri.
 
-## 🔨 2. Otonom Ürün Geliştirici Projeleri (Solo Builder Projects)
-
-### Proje 2.0: Bare-Metal Kesme (Interrupt) ve Timer Yönetimi
-* **Senaryo:** Motorlardan okuduğun encoder (hız) verisi saliselik gecikmeyi (latency) bile kabul etmez. Polling (sürekli sorma) yöntemi sistemi kitler.
-* **Görev:** STM32 veya benzeri bir ARM Cortex-M serisi mikrodenetleyici al (veya QEMU üzerinden simüle et). Bütün hazır kütüphaneleri (HAL) bir kenara bırak; doğrudan işlemcinin Register (Yazmaç) seviyesine inerek (CMSIS ile) Timer ve donanım kesmelerini (Hardware Interrupts) programla. Bir dış sinyal geldiğinde, ana programın akışını ne kadar sürede kestiğini ölç (Interrupt Latency).
-
-### Proje 2.1: Gerçek Zamanlı İşletim Sistemi (RTOS) İş Parçacığı (Thread) Analizi
-* **Senaryo:** Aracının içinde aynı anda hem GPS'ten veri okunması, hem motorlara güç verilmesi hem de bataryanın denetlenmesi gerekiyor.
-* **Görev:** FreeRTOS kullanarak 3 farklı "Task" oluştur. Priority (öncelik) seviyelerini ayarla. Bir görevi kasıtlı olarak sonsuz döngüye sokup (starvation) sistemdeki "Watchdog Timer'ın" işlemciyi nasıl resetleyip hayatta tuttuğunu gözlemle ve kodla. Ortak bir belleğe (variable) veya UART hattına yazarken Mutex ve Semaphore mekanizmalarını kullanarak "Race Condition" (Veri Çakışması) hatalarını engelle.
-
-### Proje 2.2: Uçta Kaba Kuvvet (Brute-Force at Edge): TensorRT ile C++ Model Optimizasyonu
-* **Senaryo:** Python ile çok güzel bir nesne tanıma (YOLO) modeli eğittin ama bunu Jetson karta attığında 5 FPS alıyor. Ancak sana sistem gereği 30 FPS üzerinden gerçek zamanlı engel tespiti lazım.
-* **Görev:** Eğittiğin .pt veya .onnx modelini al, NVIDIA TensorRT kullanarak C++ dilinde "Engined" formata derle. Modeli fp32'den fp16 (veya int8 quantization) kalibrasyonuna indirerek doğruluğu (accuracy) çok düşürmeden FPS'i 4-5 katına çıkaran çıkarım (inference) boru hattını (pipeline) sıfırdan C++ ile yaz.
-
-### Proje 2.3: FPGA ve Kendi AI Donanım Hızlandırıcını Yapmak (Temel Seviye Verilog/VHDL)
-* **Senaryo:** Mikroişlemciler seri (sıralı) çalışır, oysa AI devasa matris çarpımlarına (paralel) ihtiyaç duyar. Donanımın mantığını anlamazsan onu hükmedemezsin.
-* **Görev:** VHDL veya Verilog (HDL: Hardware Description Language) kullanarak basit bir matris-vektör çarpım donanımı (MAC - Multiply Accumulate unit) dizayn et. Devreyi bir FPGA simülatöründe (ModelSim, Vivado vb.) test et. Sentetik bir nöronun iç donanımını fiziken yarat.
+### C. Safety-Critical Design
+*   **ISO 26262 Standard Overview:** Otomotivde fonksiyonel güvenlik (ASIL seviyeleri: A'dan D'ye).
+*   **MISRA C:2012:** Donanım kodlamasında "Undefined Behavior" riskini sıfıra indiren kurallar bütünü.
 
 ---
 
-## 🧠 3. Meta-Mühendis Monk Mode Çerçevesi
+## 🔬 2. Teknik Derinlik: RTOS Scheduling ve AI Quantization
 
-1. **Bare-Metal Deneyimi (Metale Dokun):** İlk gömülü sistem kodlarını yazarken işi kolaylaştıran kütüphanelerden (Arduino vs) kaçın. İşlemcinin datasheet'ine bakarak, hexadecimal adreslere doğrudan bit-maskeleme yaparak donanımı hisset. Acı vericidir ama sistemi "içeriden" anlamanı sağlar.
-2. **Logic Analyzer / Osiloskop Vizyonu:** Donanımda "print(x)" ile hata ayıklanmaz. Bir sinyalin fiziksel zamanlamasını, yükselen-düşen kenar sürelerini donanımsal görebilecek zihniyete geç. Kodun fiziksel dünyada kaç volt/milisaniye karşılığı olduğunu düşün.
-3. **Yapay Zeka == Matris + Hafıza Genişliği (Memory Bandwidth):** Uç cihazlarda yapay zeka yaparken modelin ağırlıklarına değil, o ağırlıkların cihazın RAM'inden işlemcinin Cache'ine ne kadar hızlı indiğine (Bottleneck) odaklan. İşlem gücünü değil hafıza aktarımını optimize et.
+### A. RTOS: Priority Inversion (Öncelik Tersinmesi) Problematiği
+Gömülü sistemlerin en büyük faciası, düşük öncelikli bir görevin (task), yüksek öncelikli bir görevi (örn: Fren sistemi) dolaylı olarak bloke etmesidir.
+*   **Çözüm:** `Priority Inheritance` ve `Priority Ceiling` protokollerinin C++ ortamında (FreeRTOS mutexleri ile) nasıl implemente edildiğini hazmedin.
+
+### B. Edge-AI: INT8 Quantization & Calibration
+Bir Deep Learning modelini uçta çalıştırmanın sırrı, 32-bit floating point ağırlıkları 8-bit tam sayılara indirmektir.
+*   **Matematiksel Zorluk:** Bilgi kaybını (accuracy loss) minimize etmek için `Entropy Calibration` yapılması gerekir. TensorRT'nin bu süreci donanım üzerinde (Tensor Cores) nasıl optimize ettiğini dökümante edin.
+
+---
+
+## 🔨 3. Solo Builder Projeleri (Hardcore Engineering)
+
+### Proje 2.0: CMSIS ile Register-Level ARM Programlama
+*   **Görev:** STM32 üzerinde hiçbir hazır kütüphane (HAL/LL) kullanmadan, doğrudan `Systick` ve `NVIC` registerları üzerinden bir "Gerçek Zamanlı Saat" inşâ edin.
+*   **Challenge:** Osiloskop ile `Interrupt Latency` (Kesiş gecikmesi) ölçümü yapın. Donanımın koda verdiği fiziksel tepki süresini nanosaniyelerle hesaplayın.
+
+### Proje 2.1: FreeRTOS tabanlı Otonom Telemetri Sistemi
+*   **Görev:** Çok görevli (Multi-tasking) bir mimari kurun.
+    1. **Task 1 (Hig-Pri):** Sensör verisi okuma (SPI - 100Hz).
+    2. **Task 2 (Med-Pri):** Veri işleme ve Kontrol (LQR/PID).
+    3. **Task 3 (Low-Pri):** WiFi/UART üzerinden telemetri aktarımı.
+*   **Constraint:** `Queue` ve `StreamBuffer` kullanarak görevler arası veri aktarımını kilitlenmesiz (lock-free) yapmaya çalışın.
+
+### Proje 2.2: TensorRT & C++ Performans Pipeline
+*   **Görev:** Jetson üzerinde çalışan bir YOLO modelini Python'dan C++'a taşıyın.
+*   **Optimization:** `Pinned Memory` ve `CUDA Streams` kullanarak GPU-CPU veri aktarımı ile hesaplama işlemini örtüştürün (overlap). Bu sayede %30-40 arası FPS artışı yakalayın.
+
+---
+
+## 🛠️ 4. Donanım Vizyonu: Debugging & Monitoring
+
+Gömülü sistem mühendisliği "karanlıkta" yapılamaz.
+- **Logic Analyzer:** I2C, SPI ve CAN-Bus hatlarındaki bit seviyesindeki hataları yakalamak için.
+- **Memory Profiling:** `Stack Overflow` hatalarını ve `Heap fragmentation` durumlarını izlemek için RTOS araçlarını kullanın.
+- **Power Analysis:** Uç cihazda (Edge-AI) batarya ömrünü korumak için işlemcinin `Low Power Mode` geçişlerini ve akım çekişlerini (Power Profile) analiz edin.
+
+---
+
+## 🧠 5. Master Methodology
+
+1.  **Metale Dokun (Bare-Metal Mindset):** Kütüphanelere güvenmeyin. Kütüphane hata verdiğinde datasheet'i açıp o bitin gerçekten nerede takıldığını bulacak sabre sahip olun.
+2.  **Safety First (ASIL Compliance):** Yazdığınız her satır kodun "Eğer burası crash olursa araç kaza yapar mı?" sorusuna cevabını verin.
+3.  **Hafıza == Kutsal:** Gömülü sistemde bellek sonsuz değildir. Değişkenlerin boyutlarını (uint8_t vs int) titizlikle seçin ve bellek hizalamasına (alignment) dikkat edin.
