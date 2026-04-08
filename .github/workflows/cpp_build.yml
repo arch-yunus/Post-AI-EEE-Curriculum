@@ -30,3 +30,27 @@ jobs:
 
     - name: Build Project 2.0
       run: cmake --build ${{github.workspace}}/projects/Phase2_Gomulu_Sistemler/Project2.0_RTOS_Simulator/build
+
+  build_phase_3:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Configure CMake for Project 3.1 EKF
+      run: cmake -B ${{github.workspace}}/projects/Phase3_Otonom_Sistemler/Project3.1_EKF_Cpp_Core/build -S ${{github.workspace}}/projects/Phase3_Otonom_Sistemler/Project3.1_EKF_Cpp_Core
+
+    - name: Build Project 3.1 EKF
+      run: cmake --build ${{github.workspace}}/projects/Phase3_Otonom_Sistemler/Project3.1_EKF_Cpp_Core/build
+
+  build_phase_4:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Configure CMake for Project 4.1 BMS
+      run: cmake -B ${{github.workspace}}/projects/Phase4_Meta_Muhendislik/Project4.1_BMS_Firmware/build -S ${{github.workspace}}/projects/Phase4_Meta_Muhendislik/Project4.1_BMS_Firmware
+
+    - name: Build Project 4.1 BMS
+      run: cmake --build ${{github.workspace}}/projects/Phase4_Meta_Muhendislik/Project4.1_BMS_Firmware/build
