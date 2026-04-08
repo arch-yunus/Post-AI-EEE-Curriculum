@@ -93,6 +93,17 @@ graph TD
 
 <br>
 
+## ⚖️ Paradigma Değişimi: Klasik EEM vs Meta-Mühendislik
+
+| Kategori | Geleneksel Üniversite EEM | Meta-Mühendislik (Bu Repo) | Sonuç |
+| :--- | :--- | :--- | :--- |
+| **Matematik** | Tahtada elle türev/integral hesaplamak. | Kağıdı bırakıp integrali `C++` Nümerik Motoru ile hesaplamak. | Makinenin hızına ulaşmak. |
+| **Gömülü Sistemler** | Arduino'da `delay(100)` yazarak LED yakmak. | `FreeRTOS` ve `std::mutex` ile donanımsal yarış kilitleri kurmak. | Endüstriyel seviyede güvenilirlik. |
+| **Yapay Zeka** | Hazır modeli buluttan çağıran Python scripti. | NVIDIA Jetson donanımında `TensorRT Int8` optimizasyonuyla modeli metale gömmek. | Milisaniye bazlı Edge AI gecikmesizliği. |
+| **Sensör/Donanım** | Çıkan hatayı print("hata") ile okumak. | Logic Analyzer, Osiloskop ve Extended Kalman Filter ile pürüzsüz veri almak. | Fiziksel tolerans limitsizliği. |
+
+<br>
+
 ## 🗺️ Otonom Sistem Mimarı Yol Haritası (Curriculum)
 
 Bu depo salt okumalık değil; kod kodlandığı, derlendiği ve test edildiği **aktif bir laboratuvardır.** Tüm projeler `projects/` dizininde çalıştırılabilir halde seni bekliyor.
@@ -143,11 +154,26 @@ Bu depo salt okumalık değil; kod kodlandığı, derlendiği ve test edildiği 
 
 <br>
 
+## 🏆 Kariyer Çıktısı: Ne Olacaksın? 
+Bu müfredat sana standart bir "Elektrik Mühendisi" unvanı değil, aşağıdaki endüstriyel pozisyonların yetkinliğini kazandırır:
+* **Autonomous Systems Architect (Otonom Sistem Mimarı):** Silah sistemlerinden, tarım dronelarına kadar tüm insansız araçların beynini kodlayan kişi.
+* **Edge-AI Firmware Engineer:** Bulut tabanlı API yazılım dünyasından çok daha saygın; doğrudan çipler üzerine yapay zeka modelleri inşâ eden kişi.
+
+<br>
+
 ## 🧠 Çalışma Metodolojisi (Monk Mode Framework)
 Pür dikkat odaklanma (Monk Mode) gerektiren bu müfredatı hayata geçirirken uyman gereken 3 altın kural:
 1. **Teoriyi Özümse (Information Diet):** Konuyu en iyi kaynaklardan tüket, ancak `%20 Okuma, %80 İnşa Etme` kuralına uy.
 2. **Donanıma Dök (Code-First Theory):** Sadece simülasyonda veya kağıt üzerinde kalma. Formülü silisyuma (Jetson/MCU) derle.
 3. **Belgele (Documentation as Proof):** Başarısızlıklarını ve teknik ispatlarını `/notes` içine Markdown olarak kaydet. 
+
+<br>
+
+## 🤝 Katkıda Bulunma (Contributing)
+Açık kaynak komünitesi bu felsefeyi geliştirmek için bekliyor! Bir modül hatası bulursanız veya "Şu algoritmayı da C++ a döksek efsane olur" derseniz `Pull Request` (PR) atarak otonom geleceğimizin bir parçası olabilirsiniz.
+
+## 📄 Lisans
+Bu depo **MIT Lisansı** ile sunulmaktadır. Özgürce alın, kodlayın, ticarileştirin ve değiştirerek otonom geleceği hızlandırın.
 
 ---
 <div align="center">
