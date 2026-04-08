@@ -1,0 +1,32 @@
+name: C++ CMake Build CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build_phase_1:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Configure CMake for Project 1.0
+      run: cmake -B ${{github.workspace}}/projects/Phase1_Modern_Temeller/Project1.0_Circuit_Simulator/build -S ${{github.workspace}}/projects/Phase1_Modern_Temeller/Project1.0_Circuit_Simulator
+
+    - name: Build Project 1.0
+      run: cmake --build ${{github.workspace}}/projects/Phase1_Modern_Temeller/Project1.0_Circuit_Simulator/build
+
+  build_phase_2:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Configure CMake for Project 2.0
+      run: cmake -B ${{github.workspace}}/projects/Phase2_Gomulu_Sistemler/Project2.0_RTOS_Simulator/build -S ${{github.workspace}}/projects/Phase2_Gomulu_Sistemler/Project2.0_RTOS_Simulator
+
+    - name: Build Project 2.0
+      run: cmake --build ${{github.workspace}}/projects/Phase2_Gomulu_Sistemler/Project2.0_RTOS_Simulator/build
